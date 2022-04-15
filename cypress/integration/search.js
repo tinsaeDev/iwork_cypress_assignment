@@ -40,12 +40,7 @@ define("Search", function(){
         cy.visit("/");
         cy.get("#q").clear();
 
-
-        cy.get("#search-result").should(($el) => {
-            expect($el.text().trim()).equal('');
-        });
-
-
+        cy.get("#search-result .result-item").should('have.length',0);
 
     } )
 
