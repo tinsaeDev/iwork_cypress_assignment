@@ -22,6 +22,14 @@ define("Search", function(){
 
 
     } )
+
+    it("Max 10 result per page", function(){
+      
+        cy.get("#q").type("a");
+
+        cy.get("#search-result li").its('length').should('be.lte', 10)
+
+    })
 });
 
 define('Displaying Result', function(){
