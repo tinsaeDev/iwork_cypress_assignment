@@ -93,6 +93,7 @@ window.addEventListener("load",function(){
 
         results.forEach( result=>{
             let resultDOM = document.createElement("li");
+                resultDOM.classList.add("result-item");
                 resultDOM.innerText = result;
 
                 resultsDOM.appendChild( resultDOM );
