@@ -38,6 +38,14 @@ window.addEventListener("load",function(){
 
 
     function searchResult( query ){
+
+        if( query.length > 1 ){
+            return [];
+        }
+         
+        else if( query.trim().length < 1 ){
+            return [];
+        }
         
         let result = products_list.filter( function( element ){
             if( element.includes(query) ){
