@@ -1,22 +1,18 @@
 
-define(".result-itemsteners",function(){
-    it("Form Submit does nothing", function (){
+
+define("Iitial setup", function(){
+    it("Open the webpage", function(){
         cy.visit("/");
-        let form = cy.get("#search-form");
-       form.submit();
-
-    } );
-});
-
-
+    })
+} )
 define("Search", function(){
+
 
     it('Ask user to start typing', function(){
 
+       
         cy.get("#q").clear();
-        cy.get("#search-result .type-to-search-message").should('have.length', 1)
-
-
+        cy.get("#search-result .type-to-search-message").should('have.length', 1);
 
     })
 
