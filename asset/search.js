@@ -16,37 +16,36 @@ window.addEventListener("load",function(){
         let searchQueryInput = document.querySelector("[name=q]");
           searchQueryInput.addEventListener("input",searchInputListener  );   
 
+
+          askToEnterQuery();
+
     
 });
 
     function submitForm(event){
-        console.log( event );
         event.preventDefault();
 
     }
 
     function searchInputListener(event){
         let queryString = event.target.value;
-           
-        let result = searchResult( queryString );
+        
+        // Prevent searching for empty string
+        if( queryString.trim().length < 1 ){
+            askToEnterQuery();
+            return;
+        }
 
+        let result = searchResult( queryString );
         showResult( result );
+    
 
     }
 
 
 
 
-    function searchResult( query ){
-
-        if( query.length < 1 ){
-            return [];
-        }
-         
-        else if( query.trim().length < 1 ){
-            return [];
-        }
-        
+    function searchResult( query ){                   
         let result = products_list.filter( function( element ){
             if( element.includes(query) ){
                 return true;
@@ -54,6 +53,21 @@ window.addEventListener("load",function(){
         } );
 
         return result.splice(0,9)
+    }
+
+    // prints a message asking a user  to type their query
+    function askToEnterQuery(){
+
+        clearResult();
+
+        let resultsDOM = document.querySelector( "#search-result" );
+
+
+        let emptyResultMessage = document.createElement("strong");
+        emptyResultMessage.classList.add("type-to-search-message");
+        emptyResultMessage.innerText = "Please enter your search query";
+        resultsDOM.append( emptyResultMessage );
+
     }
 
 

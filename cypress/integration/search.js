@@ -11,6 +11,15 @@ define(".result-itemsteners",function(){
 
 define("Search", function(){
 
+    it('Ask user to start typing', function(){
+
+        cy.get("#q").clear();
+        cy.get("#search-result .type-to-search-message").should('have.length', 1)
+
+
+
+    })
+
     it( "Shows empty result message for empty result", function(){
 
         // Search for a non existing products
@@ -51,22 +60,4 @@ define("Search", function(){
     })
 
 
-});
-
-define('Displaying Result', function(){
-    it('Clears results before showing new results', function(){
-
-        let searchQuery = cy.get("#q");
-        searchQuery.clear();
-        searchQuery.type(" ");
-
-       cy.get("#search-result").should(($el) => {
-            expect($el.text().trim()).equal('');
-        });
-
-    })
-
-    it( 'Empty result for not found ', function(){
-
-    } );
 });
