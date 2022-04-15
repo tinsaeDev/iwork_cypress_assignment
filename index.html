@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Web Search </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Search</title>
+
+    <script src="asset/search.js"> </script>
+    <script src="asset/data.js"> </script>
 
     <style>
 
+
+        .search-box{
+            width: 24rem;
+        }
+
+        .search-box > * {
+            width: 100%;
+
+
+        }
+
+        .search-box #q{
+            padding: 8px 16px;
+            font-size: 1.25rem;
+        }
+
+        .search-box .search-result{
+            min-height: 10rem;
+            margin-top: 1rem;
+        }
+
+
+
     </style>
-</head>
-<body>
 
-
-    <main>
-
-        <input type="search" name="q" id="search-input" />
-        <button> Search </button>
-
-    </main>
 
     
-</body>
+
+    <style></style>
+  </head>
+  <body>
+    <main>
+        <form method="GET" id="search-form" class="search-box">
+            <input type="search"  name="q" id="q"  />
+            <ul class="search-result" id="search-result">
+                <li> one </li>
+                <li> one </li>
+                <li> one </li>
+                <li> one </li>
+                <li> one </li>
+            </ul>
+        </form>
+    </main>
+  </body>
 </html>
