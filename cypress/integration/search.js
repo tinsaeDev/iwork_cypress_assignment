@@ -21,7 +21,9 @@ define("Search", function(){
 
     } );
 
-    it("S")
+    it("Query existing products", function(){
+        
+    });
 
     it( "Empty result for empty query", function(){
         cy.visit("/");

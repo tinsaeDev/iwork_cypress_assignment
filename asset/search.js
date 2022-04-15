@@ -39,7 +39,7 @@ window.addEventListener("load",function(){
 
     function searchResult( query ){
 
-        if( query.length > 1 ){
+        if( query.length < 1 ){
             return [];
         }
          
