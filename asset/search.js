@@ -53,9 +53,7 @@ window.addEventListener("load",function(){
             }
         } );
 
-        console.log( "Result ::", result );
-
-        return result;
+        return result.splice(0,9)
     }
 
 
@@ -82,7 +80,16 @@ window.addEventListener("load",function(){
     // Append the new search results to results DOM
     function printResult( results ){
         let resultsDOM = document.querySelector( "#search-result" );
-        
+
+        if( results.length < 1 ){
+
+            let emptyResultMessage = document.createElement("strong");
+                emptyResultMessage.classList.add("empty-result-message");
+                emptyResultMessage.innerText = "No Product matches your search query";
+                resultsDOM.append( emptyResultMessage );
+
+            return;
+        }
 
         results.forEach( result=>{
             let resultDOM = document.createElement("li");

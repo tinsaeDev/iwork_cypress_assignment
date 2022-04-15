@@ -10,6 +10,19 @@ define("listeners",function(){
 
 
 define("Search", function(){
+
+    it( "Shows empty result message for empty result", function(){
+
+        // Search for a non existing products
+        cy.get("#q").type("sdfjsdfksdlfjsdlkfjklsdjfhsdufhsjlkj");
+
+
+        cy.get("#search-result .empty-result-message").should('have.length', 1)
+
+    } );
+
+    it("S")
+
     it( "Empty result for empty query", function(){
         cy.visit("/");
         cy.get("#q").clear();
@@ -25,11 +38,14 @@ define("Search", function(){
 
     it("Max 10 result per page", function(){
       
+        //  products wich match with 'a' are more than 54, so it is nice to use 'a' 
         cy.get("#q").type("a");
 
         cy.get("#search-result li").its('length').should('be.lte', 10)
 
     })
+
+
 });
 
 define('Displaying Result', function(){
